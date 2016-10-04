@@ -48,6 +48,7 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 #   f) (4,6,3,	4,6,3,...,4,6,3,4)	where	there	are	11	occurrences	of	4,	10	
 #   occurrences	of	6	and	10	occurrences	of	3.	
     rep(tmp,l=31)
+#          when it reaches 31st repetition, it stops
     
 #   g) (4,4,...,4,	6,6,...,6,	3,3,...,3)	where	there	are	10	occurrences	of	4,	20	
 #   occurrences	of	6	and	30	occurrences	of	3.	
@@ -76,10 +77,12 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 #   a) ("label	1",	"label	2",	.....,	"label	30"). Note	that	there	is	a	single	space	
 #   between	label	and	the	number	following.
     paste("label", 1:30, sep=" ")
+#               get the same format with label, number, separated by space
     
 #   b) ("fn1",	"fn2",	...,	"fn30").	In	this	case,	there	is	no	space	between	fn	
 #   and	the	number	following.
     paste('fn', 1:30, sep="")
+#               get the same format with label, number, separated by nothing
     
 #6.
     set.seed(50)
@@ -87,12 +90,16 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
     yVec <- sample(0:999, 250, replace=T)
 #   a)
     yVec[-1]-xVec[-250]
+#                [-1]cuts off the first number
+#                [-250] cuts off the last one
     
 #   b)
     sin(yVec[-250])/cos(xVec[-1])
+#                make sure that we need two sets with same amount of data
     
 #   c)
     xVec[-c(249,250)]+2*xVec[-c(1,250)]-xVec[-c(1,2)]
+#                get rid of the specified data
     
 #   d)
     i <- 1:249
@@ -125,9 +132,12 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 #    g) Sort the numbers in the vector xVec in the order of increasing values
 #    in yVec.
      xVec[order(yVec)]
+#                    we cannot use sort here because we just need the order and apply it to xVec
 
 #    h) Pick out the elements in yVec at index positions 1,4,7,10,13,.
      yVec[c(T,F,F)]
+#                    first item good, second, third disposed, and repeat this
 
 #8.  By using the function cumprod or otherwise, calculate:     
      1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))
+#                    first 1 is not in the sequence, after that, they are all multiplication with a specific rule
