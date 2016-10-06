@@ -10,17 +10,17 @@ output: word_document
 ***
 
 1. Create	the	vectors:
-   * __a) (1,2,3,...,19,20)__
-        c(1:20)
+   * __a) (1,2,3,...,19,20)__  
+        `c(1:20)`
 
-   * __b) (20,19,...,2,1)__
-        c(20:1)
+   * __b) (20,19,...,2,1)__  
+        `c(20:1)`
     
-   * __c) (1,2,3,...,19,20,19,18,...,2,1)__
-        c(1:20, 19:1)
+   * __c) (1,2,3,...,19,20,19,18,...,2,1)__  
+        `c(1:20, 19:1)`  
         *create the list from 1 to 20, then add 19 to 1*
     
-   * __d) (4,	6, 3)	and	assign it	to the	name	tmp.__	
+   * __d) (4,	6, 3)	and	assign it	to the	name	tmp.__  	
         tmp <- c(4, 6, 3)
 
 #   For	parts	(e),	(f)	and	(g)	look	at	the	help	for	the	function	rep.	
