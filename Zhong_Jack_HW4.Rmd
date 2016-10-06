@@ -2,104 +2,187 @@
 title: "Zhong_Jack_HW4"
 author: "Jack Zhong"
 date: "2016/10/3"
-output: word_document
+output: html_document
 ---
 
-## **Homework 4 R Intro**
+## **R Intro** 
 
 ***
 
-1. Create	the	vectors:
+
+####__1. Create	the	vectors:__  
    * __a) (1,2,3,...,19,20)__  
-        `c(1:20)`
+```{r}
+   1:20
+```
+&nbsp;
 
    * __b) (20,19,...,2,1)__  
-        `c(20:1)`
-    
+```{r}
+   20:1
+```
+&nbsp;
+
    * __c) (1,2,3,...,19,20,19,18,...,2,1)__  
-        `c(1:20, 19:1)`  
-        *create the list from 1 to 20, then add 19 to 1*
-    
+   *thought: create the list from 1 to 20, then add 19 to 1*
+```{r}
+   c(1:20, 19:1)    
+```  
+&nbsp;
+        
    * __d) (4,	6, 3)	and	assign it	to the	name	tmp.__  	
-        tmp <- c(4, 6, 3)
+```{r}
+   tmp <- c(4, 6, 3)
+```
+&nbsp;
 
-#   For	parts	(e),	(f)	and	(g)	look	at	the	help	for	the	function	rep.	
-#   e) (4,6,3,	4,6,3,...,4,6,3)	where	there	are	10	occurrences	of	4.	
-    rep(tmp, 10)
+   * __e) (4,6,3,	4,6,3,...,4,6,3) where there are 10 occurrences	of 4.__   
+   *thought: ten reps of tmp* 
+```{r}
+   rep(tmp, 10)
+```
+&nbsp;
+              
+   * __f) (4,6,3,4,6,3,...,4,6,3,4) where there are 11 occurrences	of 4, 10 occurrences of 6 and	10 occurrences of	3.__    
+   *thought: When it reaches 31st repetition, it stops.*
+```{r}
+    rep(tmp, len=31)
+```  
+&nbsp;
     
-#   f) (4,6,3,	4,6,3,...,4,6,3,4)	where	there	are	11	occurrences	of	4,	10	
-#   occurrences	of	6	and	10	occurrences	of	3.	
-    rep(tmp,l=31)
-#          when it reaches 31st repetition, it stops
-    
-#   g) (4,4,...,4,	6,6,...,6,	3,3,...,3)	where	there	are	10	occurrences	of	4,	20	
-#   occurrences	of	6	and	30	occurrences	of	3.	
-    c(rep(4,10), rep(6,20), rep(3,30))
+   * __g) (4,4,...,4, 6,6,...,6, 3,3,...,3) where	there	are	10 occurrences of	4, 20 occurrences	of 6 and 30 occurrences	of 3.__  	
+```{r}
+    rep(tmp,times=c(10,20,30))
+```
+&nbsp;
 
-#2. Create	a	vector	of	the	values	of	e^x*cos(x)	at	x	=	3,3.1,3.2,...,5.9,6
+&nbsp;
+
+####__2. Create	a	vector of the	value of $e^xcos(x)$ at x	=	3,3.1,3.2,...,5.9,6__
+```{r}
     x = seq(3,6, by=.1)
     c(exp(x)*cos(x))
-    
-#3. a)
+```
+&nbsp;
+
+&nbsp;
+
+####__3. Create the following vectors:__
+   * __a) ($0.1^30.2^1,0.1^60.2^4,0.1^90.2^7,...,0.1^{36}0.2^{34})$__    
+   *thought: View it as two parts: 0.1 to ath power times 0.2 to the bth power*  
+```{r}
     a = seq(3,36,by=3)
     b = seq(1,34,by=3)
     c(0.1^a*0.2^b)
-#   b)
+```
+&nbsp;
+
+   * __b) ($2$,$2^2/2$,$2^3/3$,...,$2^{25}/{25}$)__
+   *thought: Note that denominator is the same as the power*  
+```{r}
     c = 1:25
     c(2^c/c)
-    
-#4. a)
+```
+&nbsp;
+
+&nbsp;
+   
+####__4. Calculater the following:__  
+   * __a) $\sum_{i=10}^{100} i^3+4i^2$__   
+   *thought: Well, just add it up. Typing the formula above is more difficult:)*  
+```{r}
     i = 10:100
     sum(i^3+4*i^2)
-#   b)
-    i2 = 1:25
-    sum(2^i2/i2+3^i2/i2^2)
-    
-#5. Use	the	function	paste	to	create	the	following	character	vectors	of length	30:
-#   a) ("label	1",	"label	2",	.....,	"label	30"). Note	that	there	is	a	single	space	
-#   between	label	and	the	number	following.
+```
+&nbsp;
+
+   * __b) $\sum_{i=1}^{25} 2^i/i+3^i/i^2$__  
+   *thought: Add it up again...*   
+```{r} 
+    i = 1:25
+    sum(2^i/i+3^i/i^2)
+```
+&nbsp;
+
+&nbsp;
+
+####__5. Use	the	function	paste	to	create	the	following	character	vectors	of length	30:__  
+   * __a) ("label	1",	"label	2", ..., "label	30"). Note that there is a single	space	between	label	and	the	number following.__  
+   *thought: Get the same format with 'label'+ a space + ordered number*  
+```{r}
     paste("label", 1:30, sep=" ")
-#               get the same format with label, number, separated by space
-    
-#   b) ("fn1",	"fn2",	...,	"fn30").	In	this	case,	there	is	no	space	between	fn	
-#   and	the	number	following.
+```
+&nbsp;
+
+   * __b) ("fn1",	"fn2",	...,	"fn30"). In this case, there is	no space between fn and	the	number following.__	 
+   *thought: Get the same format with label, number, separated by nothing*   
+```{r}
     paste('fn', 1:30, sep="")
-#               get the same format with label, number, separated by nothing
+```
+&nbsp;
+
+&nbsp;
+        
     
-#6.
+####__6. Execute the following lines which create two vectors of random integers which are chosen with replacement from the intergers 0,1,...,999. Both vectors have length 250__
+```{r}
     set.seed(50)
     xVec <- sample(0:999, 250, replace=T)
     yVec <- sample(0:999, 250, replace=T)
-#   a)
-    yVec[-1]-xVec[-250]
-#                [-1]cuts off the first number
-#                [-250] cuts off the last one
-    
-#   b)
-    sin(yVec[-250])/cos(xVec[-1])
-#                make sure that we need two sets with same amount of data
-    
-#   c)
-    xVec[-c(249,250)]+2*xVec[-c(1,250)]-xVec[-c(1,2)]
-#                get rid of the specified data
-    
-#   d)
-    i <- 1:249
-    sum(exp(-xVec[-1])/(xVec[-250]+10))
-    
-#7.  This question uses the vectors xVec and yVec created in the previous
-#    question and the functions sort, order, mean, sqrt, sum and abs.
-#    a) Pick out the values in yVec which are > 600.
-     yVec[yVec>600]
-     
-#    b) What are the index positions in yVec of the values which are > 600?
-     which(yVec>600)
+```
+&nbsp;
 
-#    c) What are the values in xVec which correspond to the values in yVec
-#    which are > 600? (By correspond, we mean at the same index positions.)
-     xVec[yVec>600]
-     
-#    d) Create the vector ( |x1 ??? ????|1/2, |x2 ??? ????|1/2, . . . , |xn ??? ????|1/2) where ????
+   * __a) Create the vector ($y_2$$-$$x_1$,...,$y_n$$-$$x_{n-1}$)__   
+   *thought: use [-1] to cut off the first number and [-250] cuts off the last one*
+```{r}
+    yVec[-1]-xVec[-250]
+```
+&nbsp;
+
+   * __b) Create the vector ($sin(y_{1})/cos(x_{2}$),$sin(y_{2})/cos(x_{3}$),...,$sin(y_{n-1})/cos(x_{n}$))__  
+   *thought: Similarly, make sure that we need two sets with same amount of data.*  
+```{r}   
+    sin(yVec[-250])/cos(xVec[-1])
+```
+&nbsp;
+          
+    
+   * __c) Create the vector ($x_{1}+2x_{2}-x_{3},...,x_{n-2}+2x_{n-1}-x_n$)__  
+   *thought: We dont need the last 2 number from xVec for the 1st element; first and last for the 2nd element; first 2 for the 3rd element*
+```{r}
+    xVec[-c(249,250)]+2*xVec[-c(1,250)]-xVec[-c(1,2)]
+```
+&nbsp;
+    
+   * __d) Calculate $\sum_{i=1}^{n-1} {e^{-x_{i+1}}/(x_{i}+10)}$__ 
+   * thought: numerator x2 to x250, denominator x1 to x249
+```{r}
+    sum(exp(-xVec[-1])/(xVec[-250]+10))
+```
+&nbsp;
+
+&nbsp;
+    
+####__7. This question uses the vectors xVec and yVec created in the previous question and the functions sort, order, mean, sqrt, sum and abs.__  
+   * __a) Pick out the values in yVec which are > 600.__  
+```{r}
+    yVec[yVec>600]
+```
+&nbsp;
+
+   * __b) What are the index positions in yVec of the values which are > 600?__  
+```{r}
+    which(yVec>600)
+```
+&nbsp;
+
+   * __c) What are the values in xVec which correspond to the values in yVec which are > 600? (By correspond, we mean at the same index positions.)__ 
+```{r}
+    xVec[yVec>600]
+```
+&nbsp;
+
+   * __d) Create the vector ( |x1 ??? ????|1/2, |x2 ??? ????|1/2, . . . , |xn ??? ????|1/2) where ????
 #    denotes the mean of the vector x = (x1,x2,...,xn).
      sqrt(abs(xVec-mean(xVec)))
 
