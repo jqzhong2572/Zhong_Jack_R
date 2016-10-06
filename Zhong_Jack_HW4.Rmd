@@ -95,7 +95,7 @@ output: html_document
 ```
 &nbsp;
 
-   * __b) ($2$,$2^2/2$,$2^3/3$,...,$2^{25}/{25}$)__
+   * __b) ($2$,$2^2/2$,$2^3/3$,...,$2^{25}/{25}$)__  
    *thought: Note that denominator is the same as the power*  
 ```{r}
     c = 1:25
@@ -173,7 +173,7 @@ output: html_document
 &nbsp;
     
    * __d) Calculate $\sum_{i=1}^{n-1} {e^{-x_{i+1}}/(x_{i}+10)}$__ 
-   * thought: numerator x2 to x250, denominator x1 to x249
+   *thought: numerator x2 to x250, denominator x1 to x249*
 ```{r}
     sum(exp(-xVec[-1])/(xVec[-250]+10))
 ```
@@ -235,7 +235,7 @@ output: html_document
 &nbsp;   
 
 ####__8. By using the function cumprod or otherwise, calculate:$1+\frac{2}{3}+(\frac{2*4}{3*5})+(\frac{2*4*6}{3*5*7})+...+(\frac{2*4...*38}{3*5...*39})$__    
-   _thought: First, 1 is not in the sequence(should've be \frac{1}{2}). After that, they are all multiplication with a specific rule_
+   _thought: First, 1 is not in the sequence (should've be \frac{1}{2}). After that, they are all multiplication with a specific rule_
 ```{r}
      1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))
 ```
