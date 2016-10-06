@@ -125,6 +125,22 @@ $(document).ready(function () {
 <div id="r-intro" class="section level2">
 <h2><strong>R Intro</strong></h2>
 <hr />
+<div id="readme" class="section level4">
+<h4><strong>README</strong></h4>
+<div id="knit-html-and-everything-will-be-computed" class="section level6">
+<h6><strong>Knit HTML and everything will be computed</strong></h6>
+</div>
+<div id="knit-html-and-everything-will-be-computed-1" class="section level6">
+<h6><strong>Knit HTML and everything will be computed</strong></h6>
+</div>
+<div id="knit-html-and-everything-will-be-computed-2" class="section level6">
+<h6><strong>Knit HTML and everything will be computed</strong></h6>
+</div>
+<div id="knit-html-and-everything-will-be-computed-3" class="section level6">
+<h6><strong>Knit HTML and everything will be computed</strong></h6>
+<hr />
+</div>
+</div>
 <div id="create-the-vectors" class="section level4">
 <h4><strong>1. Create the vectors:</strong></h4>
 <ul>
@@ -370,81 +386,150 @@ $(document).ready(function () {
 <p> </p>
 <ul>
 <li><strong>d) Calculate <span class="math inline">\(\sum_{i=1}^{n-1} {e^{-x_{i+1}}/(x_{i}+10)}\)</span></strong></li>
+<li>thought: numerator x2 to x250, denominator x1 to x249</li>
 </ul>
-<pre class="r"><code>    i &lt;- 1:249
-    sum(exp(-xVec[-1])/(xVec[-250]+10))</code></pre>
+<pre class="r"><code>    sum(exp(-xVec[-1])/(xVec[-250]+10))</code></pre>
 <pre><code>## [1] 0.01269872</code></pre>
 <p> </p>
+<p> </p>
 </div>
+<div id="this-question-uses-the-vectors-xvec-and-yvec-created-in-the-previous-question-and-the-functions-sort-order-mean-sqrt-sum-and-abs." class="section level4">
+<h4><strong>7. This question uses the vectors xVec and yVec created in the previous question and the functions sort, order, mean, sqrt, sum and abs.</strong></h4>
+<ul>
+<li><strong>a) Pick out the values in yVec which are &gt; 600.</strong></li>
+</ul>
+<pre class="r"><code>    yVec[yVec&gt;600]</code></pre>
+<pre><code>##   [1] 709 871 621 930 948 783 878 671 860 768 698 974 855 813 776 721 917
+##  [18] 985 705 884 840 687 957 955 786 938 930 641 615 988 881 881 997 823
+##  [35] 791 643 779 693 845 815 752 766 635 993 919 686 635 613 660 800 743
+##  [52] 965 743 615 615 803 948 760 604 800 772 863 902 689 881 941 924 693
+##  [69] 835 632 872 876 850 961 681 791 947 915 712 665 921 798 866 828 942
+##  [86] 841 645 681 827 884 890 970 632 717 846 952 609 824 695 675 777 813
+## [103] 792 783 611 853 738 668 791</code></pre>
+<p> </p>
+<ul>
+<li><strong>b) What are the index positions in yVec of the values which are &gt; 600?</strong></li>
+</ul>
+<pre class="r"><code>    which(yVec&gt;600)</code></pre>
+<pre><code>##   [1]   1   2   5   6   8  10  11  13  16  18  27  28  32  33  34  36  42
+##  [18]  43  45  48  50  55  58  59  60  61  63  66  67  68  72  79  80  86
+##  [35]  88  94  95  96  97 101 102 105 107 109 111 114 118 119 120 123 125
+##  [52] 127 131 132 134 136 137 138 139 142 143 150 151 154 157 158 159 161
+##  [69] 163 164 167 168 172 173 174 175 176 178 180 181 182 183 187 189 190
+##  [86] 203 204 205 206 211 213 214 219 220 224 226 227 230 232 237 238 239
+## [103] 241 243 245 246 247 249 250</code></pre>
+<p> </p>
+<ul>
+<li><strong>c) What are the values in xVec which correspond to the values in yVec which are &gt; 600? (By correspond, we mean at the same index positions.)</strong></li>
+</ul>
+<pre class="r"><code>    xVec[yVec&gt;600]</code></pre>
+<pre><code>##   [1] 708 437 513  44 646 107 390 640 676 364 577 257 408 437 618 627 836
+##  [18] 278  55 458 803 358 525 511 266 578 197  38 724  61 995 652 956  19
+##  [35] 680 760  48 294  69 505 964  24  10 840 878 113 789 444 986 537 515
+##  [52] 263 359 189 457 274 543 324 176 160 260 407 216 977 148 293 660 137
+##  [69] 852 743 353 371 768 339 203 478  49 880 996 894 357 900 972 467 324
+##  [86] 517 446 533 190 501 124  14   5 863 399 256 678 188 258 110 957 285
+## [103]  34 631 179 545 123 238 178</code></pre>
+<p> </p>
+<ul>
+<li><strong>d) Create the vector blablabla…</strong></li>
+</ul>
+<pre class="r"><code>    sqrt(abs(xVec-mean(xVec)))</code></pre>
+<pre><code>##   [1] 16.0044994  3.8543482 15.8699716 17.7522956  7.8194629 20.1954450
+##   [7] 15.7208142 13.9335566 20.2449006 18.5702989  7.8648585 13.5224258
+##  [13] 13.7165593 19.3611983 13.2233127 14.9714395 19.5740645  9.3731532
+##  [19] 19.4385185 16.8480266 12.8118695 16.0890025 16.0668603 19.7520632
+##  [25] 11.9522383 14.0763632 11.1867779 13.9590831 11.3073427  9.1572922
+##  [31]  9.6879306  6.6223863  3.8543482 12.8896858 15.1610026 13.2341981
+##  [37] 18.1894475 15.7842960  8.8800901  2.4787093  9.4263461 19.5995918
+##  [43] 13.1854465 18.9434949 19.9212449 15.7525871 22.4085698  2.4787093
+##  [49] 16.1599505 18.7388367 23.3268943 17.6958752 13.6800585 12.3634947
+##  [55]  9.6879306  5.1822775 16.2217138  8.5524266  7.6905136 13.6329014
+##  [61] 11.2313846 14.2528594 15.9642100 11.5388041 17.9681941 20.3434510
+##  [67] 16.4967876 19.7700784 17.7723381 22.1843188  7.4259006 23.3054500
+##  [73] 14.4618118 19.4385185 22.6967839 17.4314658 14.3228489 22.4531512
+##  [79] 14.1472259 22.4531512  9.5469367 20.8532012 10.6233705  4.1405314
+##  [85]  9.5991666 20.8051917 21.2333700 15.1044364  9.2273506 13.8976257
+##  [91] 15.4642814 15.3669776 19.3944322 17.5540309 20.0961688 12.5640758
+##  [97] 19.5667064 18.8452647 11.8682770 14.7018366  7.2899931 22.6305988
+## [103] 13.4217734 21.0678903 20.6846803 20.2520122 21.0203711 12.7335777
+## [109] 19.7013705  9.9426355 20.6432556 19.4898948 16.0890025 18.4080417
+## [115] 19.2316406 11.3954377 18.9962101 18.3614814  2.8028557 23.1115556
+## [121] 13.1203658 20.8292103  9.2273506 10.1066315  7.9463199  2.8537694
+## [127] 13.7424889 20.2449006 19.3870060 13.9948562  9.6361818 16.2128344
+## [133] 18.8452647  2.2680388 18.7844617 13.3362663  9.5469367 11.3073427
+## [139] 16.6089133  5.0143793  9.4416100 17.0837935 13.8512093 16.6690132
+## [145] 20.0961688  6.0709143 15.9732276 13.1584194  8.8399095  6.6974622
+## [151] 15.3576040 15.0948998  7.5402918 22.9160206 19.3944322  3.0239048
+## [157] 17.4314658 12.6038089 14.4271965 20.3434510 17.7441821 15.0948998
+## [163] 20.0035997 17.0629423 15.2034207  9.6511139  9.9426355  8.9919964
+## [169] 20.3505282  0.3794733 18.9510950 17.7804387 10.6233705 15.7751704
+## [175]  5.1131204 20.0712730 20.7811453 20.6916408  5.3050919 23.3268943
+## [181] 21.0272205  9.7394045 21.1694119 12.2940636 14.6677878 18.3069386
+## [187] 22.8066657  2.2680388  3.8915293 11.3073427 21.8207241 18.5163711
+## [193]  9.3196566 23.1331796 10.9610219 13.1093860 18.4080417 15.8159413
+## [199] 22.6084940  6.8451443 19.7194320 13.0055373  8.0711833  2.4199174
+## [205]  9.0079964 16.1819653 13.6434600 13.2987217 20.3259440  4.1056059
+## [211]  7.0102782 14.7358067 18.1067943 20.9250090 21.6366356 11.9939985
+## [217] 19.1795725  8.4346903 21.1389688 20.2766861 20.2025741 18.2169152
+## [223] 15.6797959  7.2702132 20.5634627 13.9948562 15.0380850 19.8205953
+## [229]  6.7189285 16.2436449 18.0237621 13.9232180  8.7095350 16.7587589
+## [235] 18.1423262 20.4485696 18.4893483 22.4754088 12.9172753  8.3579902
+## [241] 20.4415264  6.9897067 13.3844686 15.9642100 16.5183534  9.6511139
+## [247] 18.1343872 17.5540309 14.6238162 16.5485951</code></pre>
+<p> </p>
+<ul>
+<li><strong>e)How many values in yVec are within 200 of the maximum value of the terms in yVec?</strong></li>
+</ul>
+<pre class="r"><code>     sum(yVec&gt;max(yVec)-200)</code></pre>
+<pre><code>## [1] 57</code></pre>
+<p> </p>
+<ul>
+<li><strong>f) How many numbers in xVec are divisible by 2? (Note that the mod operator is denoted %%.)</strong></li>
+</ul>
+<pre class="r"><code>     sum(xVec%%2==0)</code></pre>
+<pre><code>## [1] 124</code></pre>
+<p> </p>
+<ul>
+<li><strong>g) Sort the numbers in the vector xVec in the order of increasing values in yVec.</strong><br />
+ <em>thought: We cannot use sort here because we just need the order and apply it to xVec</em></li>
+</ul>
+<pre class="r"><code>     xVec[order(yVec)]</code></pre>
+<pre><code>##   [1] 405 842 308 572 461   8 256 507 373 639  42 616  29 645 376 669 688
+##  [18] 197  63 638 862  77 996  93  59 585 661  72 339  20 206 537 174 322
+##  [35]  42 603 425  48 707 452 477  99 224 811 715 358 963 222 395 543 480
+##  [52] 193 683 710 691 954 700 614 787 835 275 435 309 368 224 460 497 944
+##  [69] 530 765 523 171 870 807 469 828 624 200 713 365 781  74 129  76 701
+##  [86] 760 193 866 353 168 967 545 920 541 650 148 277  18 667 865 987 120
+## [103] 655   1 554 699 311 458 632  84 269  82 280 544  17 621 807 113 136
+## [120] 457 702  91 625 767 828 109 860 363 121 657 668 324 382 956 299 403
+## [137]  74 928 415  38 127 176 678 179 444 724 189 457 513 743   5  10 789
+## [154]  38 760 446 986 894 238 640 110 203 533 113 358 977 294 137 258 577
+## [171]  55 708 996 863 627 123 515 359 964 324  24 364 260 618 957  48 107
+## [188] 631 266 680 478 178  34 900 537 160 274 437 285 505  19 188 190 467
+## [205] 852 803 517  69 399 768 545 408 676 407 972 437 353 371 390 995 652
+## [222] 148 458 501 124 216 880 836 878 357 660  44 197 578 293 324  49 646
+## [239] 543 256 511 525 339 263  14 257 278  61 840 956</code></pre>
+<p> </p>
+<ul>
+<li><strong>h) Pick out the elements in yVec at index positions 1,4,7,10,13,.</strong><br />
+ <em>thought: First item good, second, third disposed, and repeat this</em></li>
+</ul>
+<pre class="r"><code>     yVec[c(T,F,F)]</code></pre>
+<pre><code>##  [1] 709 517 437 783 671 860 581 347 279 974 216 776 538 460 985 248 317
+## [18] 288 687 957 938 101 615 285 106 414 881 488 484 791 246 643 845 553
+## [35] 465  87 993 116 473 635 310 428 965  19 489 803 604 800 175 516 902
+## [52] 689 881 593 835 398 358 850 791 915 665 167 866 942 320 482 216 488
+## [69] 681 273 884 970 469 717 127 952 284 695 325 777 792  72 738 791</code></pre>
+<p> </p>
+<p> </p>
 </div>
-<div id="this-question-uses-the-vectors-xvec-and-yvec-created-in-the-previous" class="section level1">
-<h1>7. This question uses the vectors xVec and yVec created in the previous</h1>
+<div id="by-using-the-function-cumprod-or-otherwise-calculate1frac23frac2435frac246357...frac24...3835...39" class="section level4">
+<h4><strong>8. By using the function cumprod or otherwise, calculate:<span class="math inline">\(1+\frac{2}{3}+(\frac{2*4}{3*5})+(\frac{2*4*6}{3*5*7})+...+(\frac{2*4...*38}{3*5...*39})\)</span></strong></h4>
+<p><em>thought: First, 1 is not in the sequence(should’ve be ). After that, they are all multiplication with a specific rule</em></p>
+<pre class="r"><code>     1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))</code></pre>
+<pre><code>## [1] 1.682045e+21</code></pre>
 </div>
-<div id="question-and-the-functions-sort-order-mean-sqrt-sum-and-abs." class="section level1">
-<h1>question and the functions sort, order, mean, sqrt, sum and abs.</h1>
-</div>
-<div id="a-pick-out-the-values-in-yvec-which-are-600." class="section level1">
-<h1>a) Pick out the values in yVec which are &gt; 600.</h1>
-<pre><code> yVec[yVec&gt;600]
- </code></pre>
-</div>
-<div id="b-what-are-the-index-positions-in-yvec-of-the-values-which-are-600" class="section level1">
-<h1>b) What are the index positions in yVec of the values which are &gt; 600?</h1>
-<pre><code> which(yVec&gt;600)</code></pre>
-</div>
-<div id="c-what-are-the-values-in-xvec-which-correspond-to-the-values-in-yvec" class="section level1">
-<h1>c) What are the values in xVec which correspond to the values in yVec</h1>
-</div>
-<div id="which-are-600-by-correspond-we-mean-at-the-same-index-positions." class="section level1">
-<h1>which are &gt; 600? (By correspond, we mean at the same index positions.)</h1>
-<pre><code> xVec[yVec&gt;600]
- </code></pre>
-</div>
-<div id="d-create-the-vector-x1-12-x2-12-.-.-.-xn-12-where" class="section level1">
-<h1>d) Create the vector ( |x1 ??? ????|1/2, |x2 ??? ????|1/2, . . . , |xn ??? ????|1/2) where ????</h1>
-</div>
-<div id="denotes-the-mean-of-the-vector-x-x1x2xn." class="section level1">
-<h1>denotes the mean of the vector x = (x1,x2,…,xn).</h1>
-<pre><code> sqrt(abs(xVec-mean(xVec)))</code></pre>
-</div>
-<div id="e-how-many-values-in-yvec-are-within-200-of-the-maximum-value-of" class="section level1">
-<h1>e) How many values in yVec are within 200 of the maximum value of</h1>
-</div>
-<div id="the-terms-in-yvec" class="section level1">
-<h1>the terms in yVec?</h1>
-<pre><code> sum(yVec&gt;max(yVec)-200)
- </code></pre>
-</div>
-<div id="f-how-many-numbers-in-xvec-are-divisible-by-2-note-that-the-mod" class="section level1">
-<h1>f) How many numbers in xVec are divisible by 2? (Note that the mod</h1>
-</div>
-<div id="operator-is-denoted-." class="section level1">
-<h1>operator is denoted %%.)</h1>
-<pre><code> sum(xVec%%2==0)</code></pre>
-</div>
-<div id="g-sort-the-numbers-in-the-vector-xvec-in-the-order-of-increasing-values" class="section level1">
-<h1>g) Sort the numbers in the vector xVec in the order of increasing values</h1>
-</div>
-<div id="in-yvec." class="section level1">
-<h1>in yVec.</h1>
-<pre><code> xVec[order(yVec)]</code></pre>
-</div>
-<div id="we-cannot-use-sort-here-because-we-just-need-the-order-and-apply-it-to-xvec" class="section level1">
-<h1>we cannot use sort here because we just need the order and apply it to xVec</h1>
-</div>
-<div id="h-pick-out-the-elements-in-yvec-at-index-positions-1471013." class="section level1">
-<h1>h) Pick out the elements in yVec at index positions 1,4,7,10,13,.</h1>
-<pre><code> yVec[c(T,F,F)]</code></pre>
-</div>
-<div id="first-item-good-second-third-disposed-and-repeat-this" class="section level1">
-<h1>first item good, second, third disposed, and repeat this</h1>
-</div>
-<div id="by-using-the-function-cumprod-or-otherwise-calculate" class="section level1">
-<h1>8. By using the function cumprod or otherwise, calculate:</h1>
-<pre><code> 1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))</code></pre>
-</div>
-<div id="first-1-is-not-in-the-sequence-after-that-they-are-all-multiplication-with-a-specific-rule" class="section level1">
-<h1>first 1 is not in the sequence, after that, they are all multiplication with a specific rule</h1>
 </div>
 
 

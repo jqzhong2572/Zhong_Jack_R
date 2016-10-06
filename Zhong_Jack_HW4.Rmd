@@ -10,6 +10,24 @@ output: html_document
 ***
 
 
+
+
+
+
+####**README**
+
+###### **Knit HTML and everything will be computed**
+###### **Knit HTML and everything will be computed**
+###### **Knit HTML and everything will be computed**
+###### **Knit HTML and everything will be computed**
+
+
+
+
+
+***
+
+
 ####__1. Create	the	vectors:__  
    * __a) (1,2,3,...,19,20)__  
 ```{r}
@@ -182,27 +200,42 @@ output: html_document
 ```
 &nbsp;
 
-   * __d) Create the vector ( |x1 ??? ????|1/2, |x2 ??? ????|1/2, . . . , |xn ??? ????|1/2) where ????
-#    denotes the mean of the vector x = (x1,x2,...,xn).
-     sqrt(abs(xVec-mean(xVec)))
+   * __d) Create the vector blablabla...__  
+```{r}
+    sqrt(abs(xVec-mean(xVec)))
+```
+&nbsp;
 
-#    e) How many values in yVec are within 200 of the maximum value of
-#    the terms in yVec?
+   * __e)How many values in yVec are within 200 of the maximum value of the terms in yVec?__  
+```{r}
      sum(yVec>max(yVec)-200)
+```
+&nbsp;
      
-#    f) How many numbers in xVec are divisible by 2? (Note that the mod
-#    operator is denoted %%.)
+   * __f) How many numbers in xVec are divisible by 2? (Note that the mod operator is denoted %%.)__  
+```{r}
      sum(xVec%%2==0)
+```
+&nbsp;
 
-#    g) Sort the numbers in the vector xVec in the order of increasing values
-#    in yVec.
+   * __g) Sort the numbers in the vector xVec in the order of increasing values in yVec.__  
+   *thought: We cannot use sort here because we just need the order and apply it to xVec*  
+```{r}
      xVec[order(yVec)]
-#                    we cannot use sort here because we just need the order and apply it to xVec
+```
+&nbsp;  
 
-#    h) Pick out the elements in yVec at index positions 1,4,7,10,13,.
+   * __h) Pick out the elements in yVec at index positions 1,4,7,10,13,.__  
+   *thought: First item good, second, third disposed, and repeat this*  
+```{r}
      yVec[c(T,F,F)]
-#                    first item good, second, third disposed, and repeat this
+```
+&nbsp;   
 
-#8.  By using the function cumprod or otherwise, calculate:     
+&nbsp;   
+
+####__8. By using the function cumprod or otherwise, calculate:$1+\frac{2}{3}+(\frac{2*4}{3*5})+(\frac{2*4*6}{3*5*7})+...+(\frac{2*4...*38}{3*5...*39})$__    
+   _thought: First, 1 is not in the sequence(should've be \frac{1}{2}). After that, they are all multiplication with a specific rule_
+```{r}
      1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))
-#                    first 1 is not in the sequence, after that, they are all multiplication with a specific rule
+```
