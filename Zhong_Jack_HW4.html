@@ -218,7 +218,8 @@ $(document).ready(function () {
 ## [11] 2.147484e-55 1.717987e-60</code></pre>
 <p> </p>
 <ul>
-<li><strong>b) (<span class="math inline">\(2\)</span>,<span class="math inline">\(2^2/2\)</span>,<span class="math inline">\(2^3/3\)</span>,…,<span class="math inline">\(2^{25}/{25}\)</span>)</strong> <em>thought: Note that denominator is the same as the power</em></li>
+<li><strong>b) (<span class="math inline">\(2\)</span>,<span class="math inline">\(2^2/2\)</span>,<span class="math inline">\(2^3/3\)</span>,…,<span class="math inline">\(2^{25}/{25}\)</span>)</strong><br />
+ <em>thought: Note that denominator is the same as the power</em></li>
 </ul>
 <pre class="r"><code>    c = 1:25
     c(2^c/c)</code></pre>
@@ -385,8 +386,7 @@ $(document).ready(function () {
 ## [239] 1015   47  209 1468  846   10 1146   31 1405 1058</code></pre>
 <p> </p>
 <ul>
-<li><strong>d) Calculate <span class="math inline">\(\sum_{i=1}^{n-1} {e^{-x_{i+1}}/(x_{i}+10)}\)</span></strong></li>
-<li>thought: numerator x2 to x250, denominator x1 to x249</li>
+<li><strong>d) Calculate <span class="math inline">\(\sum_{i=1}^{n-1} {e^{-x_{i+1}}/(x_{i}+10)}\)</span></strong> <em>thought: numerator <span class="math inline">\(x_2\)</span> to <span class="math inline">\(x_{250}\)</span>, denominator <span class="math inline">\(x_1\)</span> to <span class="math inline">\(x_{249}\)</span></em></li>
 </ul>
 <pre class="r"><code>    sum(exp(-xVec[-1])/(xVec[-250]+10))</code></pre>
 <pre><code>## [1] 0.01269872</code></pre>
@@ -479,7 +479,8 @@ $(document).ready(function () {
 ## [247] 18.1343872 17.5540309 14.6238162 16.5485951</code></pre>
 <p> </p>
 <ul>
-<li><strong>e)How many values in yVec are within 200 of the maximum value of the terms in yVec?</strong></li>
+<li><strong>e)How many values in yVec are within 200 of the maximum value of the terms in yVec?</strong><br />
+ <em>thought: Within 200 of the max meaning it has to be greater than max-200</em></li>
 </ul>
 <pre class="r"><code>     sum(yVec&gt;max(yVec)-200)</code></pre>
 <pre><code>## [1] 57</code></pre>
@@ -526,9 +527,15 @@ $(document).ready(function () {
 </div>
 <div id="by-using-the-function-cumprod-or-otherwise-calculate1frac23frac2435frac246357...frac24...3835...39" class="section level4">
 <h4><strong>8. By using the function cumprod or otherwise, calculate:<span class="math inline">\(1+\frac{2}{3}+(\frac{2*4}{3*5})+(\frac{2*4*6}{3*5*7})+...+(\frac{2*4...*38}{3*5...*39})\)</span></strong></h4>
-<p><em>thought: First, 1 is not in the sequence(should’ve be ). After that, they are all multiplication with a specific rule</em></p>
+<p><em>thought: First, 1 is not in the sequence (should’ve be ). After that, they are all multiplication with a specific rule</em></p>
 <pre class="r"><code>     1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))</code></pre>
 <pre><code>## [1] 1.682045e+21</code></pre>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><sub><del>It’s funny that I spent 2 hours doing the problems but 4 hours on formatting</del></sub></p>
 </div>
 </div>
 
