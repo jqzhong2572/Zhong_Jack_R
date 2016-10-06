@@ -173,7 +173,7 @@ output: html_document
 &nbsp;
     
    * __d) Calculate $\sum_{i=1}^{n-1} {e^{-x_{i+1}}/(x_{i}+10)}$__ 
-   *thought: numerator x2 to x250, denominator x1 to x249*
+   *thought: numerator $x_2$ to $x_{250}$, denominator $x_1$ to $x_{249}$*
 ```{r}
     sum(exp(-xVec[-1])/(xVec[-250]+10))
 ```
@@ -207,6 +207,7 @@ output: html_document
 &nbsp;
 
    * __e)How many values in yVec are within 200 of the maximum value of the terms in yVec?__  
+   *thought: Within 200 of the max meaning it has to be greater than max-200*  
 ```{r}
      sum(yVec>max(yVec)-200)
 ```
@@ -239,3 +240,14 @@ output: html_document
 ```{r}
      1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))
 ```
+&nbsp;   
+
+&nbsp;   
+
+&nbsp;   
+
+&nbsp;   
+
+&nbsp;   
+
+~~~It's funny that I spent 2 hours doing the problems but 4 hours on formatting~~~
