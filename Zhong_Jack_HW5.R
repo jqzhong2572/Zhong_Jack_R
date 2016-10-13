@@ -64,6 +64,7 @@ corr <- function(data) {
   cor[,2] <- NULL
     # Delete column 2
   colnames(cor) <- c("variables", "corr")
+  row.names(cor) <- c(1:nrow(cor))
     # Modify column name
   return (cor)
 }
