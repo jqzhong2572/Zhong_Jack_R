@@ -1,11 +1,11 @@
 library('ggplot2')
+data(diamonds)
 data <- data.frame(diamonds)
 
 
 #1 
-structure(data)
-str(data)
-methods(data.frame)
+methods(class=data.frame)
+attributes(data)
 ncol(data)
 
 #2
@@ -49,30 +49,24 @@ cat(c(100 * sum(apply(is.na(data), 1, any) / nrow(data)), '%'), sep = '')
 
 
 #8
-install.packages('dplyr') # Only have to run once.
-library(dplyr)
-library(reshape2)
-my.function <- function(data)
-{
+corr <- function(data) {
   data_refine <- na.omit(data)
-  cor <- cor(data2_refine[sapply(data2_refine, is.numeric)],method="pearson")
-  cor <- as.matrix(cor)
-  data_cor_melt <- arrange(melt(cor))
-
-  
-
+    # Get rid of junks
+  cor_matrix <- cor(data_refine[sapply(data_refine, is.numeric)],method="pearson")
+    # Calculate correlation only on numeric columns
+  cor <- as.data.frame(as.table(cor_matrix))
+    # Change it to a data frame
+  combinations = combn( colnames( cor_matrix ) , 2 , FUN = function( x ) { paste( x , collapse = "_" ) } )
+  cor <-  cor[ cor$Var1 != cor$Var2 , ]
+  cor <-  cor[ paste( cor$Var1 , cor$Var2 , sep = "_" ) %in% combinations , ]
+    # These get rid of the 1s in diagnal and duplicates
+  cor[,1] = paste(cor$Var1 , cor$Var2 , sep = "-")
+    # Modify column 1 names
+  cor[,2] <- NULL
+    # Delete column 2
+  colnames(cor) <- c("variables", "corr")
+    # Modify column name
+  return (cor)
 }
 
-
-
-?apply
-??attributes
-#watch G's vid around "difference between R and python"
-
-
-
-d <- data.frame(x1=rnorm(10),
-                x2=rnorm(10),
-                x3=rnorm(10))
-d_cor <- as.matrix(cor(d))
-d_cor_melt <- arrange(melt(d_cor))
+corr(data)
