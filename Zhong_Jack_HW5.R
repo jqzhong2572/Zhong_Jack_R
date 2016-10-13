@@ -23,13 +23,12 @@ print(lapply(data, class))
 
 
 #5
-data_refine <- na.omit(data)
-    # I want to get rid of the rows with incomplete information
-print(lapply(data_refine[, sapply(data_refine, is.numeric)],mean))
+data_num <- data[sapply(data, is.numeric)]
+lapply(data_num,mean,na.rm=TRUE)
     # First, sapply(data, is.numeric)] performe is.numeric on columns in dataframe, and get a vector of TRUE and FALSE.
     # Secondly, pick out the columns returning TRUE.
     # Thirdly, apply function mean to those columns.
-
+    # I want to get rid of the rows with incomplete information.
 
 #6
 print(lapply(data_refine[, sapply(data_refine, is.factor)], table))
