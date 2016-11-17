@@ -1,6 +1,6 @@
 # Jack Zhong
 # HW6
-
+##Prof G - Nice work!
 library(ggplot2)
 library('grid')
   # we need both for the homework

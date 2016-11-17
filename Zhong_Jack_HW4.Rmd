@@ -5,6 +5,8 @@ date: "2016/10/3"
 output: html_document
 ---
 
+%%Prof G - Nicely formatted output but sparse on the comments. Not always clear why you did certain things. Interesting comment "create the vector blablabla" =D
+
 ## **R Intro** 
 
 ***
@@ -238,6 +240,9 @@ output: html_document
 ####__8. By using the function cumprod or otherwise, calculate:$1+\frac{2}{3}+(\frac{2*4}{3*5})+(\frac{2*4*6}{3*5*7})+...+(\frac{2*4...*38}{3*5...*39})$__    
    _thought: First, 1 is not in the sequence (should've be \frac{1}{2}). After that, they are all multiplication with a specific rule_
 ```{r}
+##Prof G - Oops. One of your closing parens
+##Prof G - is in the wrong position, which
+##Prof G - produces the wrong answer.
      1 + sum(cumprod(seq(2,38,by=2))/seq(3,39,by=2))
 ```
 &nbsp;   
@@ -250,4 +255,5 @@ output: html_document
 
 &nbsp;   
 
+%%Prof G - Haha - but it looks great!
 ~~~It's funny that I spent 2 hours doing the problems but 4 hours on formatting~~~

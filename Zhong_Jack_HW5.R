@@ -1,7 +1,7 @@
 library('ggplot2')
-data(diamonds)
-data <- data.frame(diamonds)
-
+##Prof G - data(diamonds)
+##Prof G - data <- data.frame(diamonds)
+data <- mydf
 
 #1 
 methods(class=data.frame)
@@ -29,7 +29,9 @@ lapply(data_num,mean,na.rm=TRUE)
     # Secondly, pick out the columns returning TRUE.
     # Thirdly, apply function mean to those columns.
     # I want to get rid of the rows with incomplete information.
-
+##Prof G - Got an error here - data_refine is
+##Prof G - not defined. Will assign data_num to data_refine
+data_refine <- data_num
 #6
 print(lapply(data_refine[, sapply(data_refine, is.factor)], table))
     # It is similarly to question 5. 
@@ -38,6 +40,8 @@ print(lapply(data_refine[, sapply(data_refine, is.factor)], table))
 
 #7
 # Number of rows containing an NA
+##Prof G - This should have been the number of NA's
+##Prof G - in each column.
 print(sum(apply(is.na(data), 1, any)))
 # Percentage of rows containing an NA
 cat(c(100 * sum(apply(is.na(data), 1, any) / nrow(data)), '%'), sep = '')
