@@ -1,7 +1,6 @@
 library('ggplot2')
-##Prof G - data(diamonds)
-##Prof G - data <- data.frame(diamonds)
-data <- mydf
+data(diamonds)
+data <- data.frame(diamonds)
 
 #1 
 methods(class=data.frame)
@@ -29,11 +28,10 @@ lapply(data_num,mean,na.rm=TRUE)
     # Secondly, pick out the columns returning TRUE.
     # Thirdly, apply function mean to those columns.
     # I want to get rid of the rows with incomplete information.
-##Prof G - Got an error here - data_refine is
-##Prof G - not defined. Will assign data_num to data_refine
-data_refine <- data_num
+
 #6
-print(lapply(data_refine[, sapply(data_refine, is.factor)], table))
+## Jack - I changed the name of variable in this one to data instead of something that wasn't defined before
+print(lapply(data[, sapply(data, is.factor)], table))
     # It is similarly to question 5. 
     # But this time we use function table on the desired columns to get frequency list.
 
@@ -42,9 +40,11 @@ print(lapply(data_refine[, sapply(data_refine, is.factor)], table))
 # Number of rows containing an NA
 ##Prof G - This should have been the number of NA's
 ##Prof G - in each column.
-print(sum(apply(is.na(data), 1, any)))
+
+##    Jack - I changed 1 to 2 
+print(sum(apply(is.na(data), 2, any)))
 # Percentage of rows containing an NA
-cat(c(100 * sum(apply(is.na(data), 1, any) / nrow(data)), '%'), sep = '')
+cat(c(100 * sum(apply(is.na(data), 2, any) / nrow(data)), '%'), sep = '')
     # First, is.na(data) change every element to TRUE or FALSE whether it is NA
     # Secondly, apply(is.na(data), 1, any) return a list stating if the rows have at least 1 TRUE
     # Thirdly, calculate the sum of number of rows with TRUE and divide it by number of rows
